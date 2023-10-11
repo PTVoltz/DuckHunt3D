@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class PlayerController : MonoBehaviour
 {
     //Startup Variables
-    public int mouseSpeed;
+    public float mouseSpeed;
     public int horizontalRotation;
     public int verticalRotation;
     public int VerticalOffset;
