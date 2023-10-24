@@ -39,12 +39,12 @@ public class PlayerController : MonoBehaviour
         BulletCounter = BulletMax;
     }
 
-    // Update is called once per frame
+    // All references to "Time.timeScale" are used to check if the game is paused or not
     void Update()
     {
         //Get mouse input and rotate the camera accordingly
-        mouseX += mouseSpeed * Input.GetAxis("Mouse X");
-        mouseY += mouseSpeed * Input.GetAxis("Mouse Y");
+        mouseX += mouseSpeed * Input.GetAxis("Mouse X") * Time.timeScale;
+        mouseY += mouseSpeed * Input.GetAxis("Mouse Y") * Time.timeScale;
 
         mouseX = Mathf.Clamp(mouseX, -horizontalRotation, horizontalRotation);
         mouseY = Mathf.Clamp(mouseY, -(verticalRotation-VerticalOffset), (verticalRotation+VerticalOffset));
@@ -55,14 +55,14 @@ public class PlayerController : MonoBehaviour
 
         //Set Gun Aim position to ray-cast direction
         RaycastHit hit;
-        Ray gunRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+        Ray gunRay = Camera.main.ScreenPointToRay(Input.mousePosition*Time.timeScale);
         if (Physics.Raycast(gunRay, out hit))
         {
             gunAim.transform.position = hit.point;
         }
 
         //Detect mouse click and fire Bullet particle
-        if (Input.GetButtonDown("Fire1") && (BulletCounter > 0))
+        if (Input.GetButtonDown("Fire1") && (BulletCounter > 0) && (Time.timeScale>0))
         {
             bulletEmitter.Emit(1);
             //Debug.Log("Clicked");
