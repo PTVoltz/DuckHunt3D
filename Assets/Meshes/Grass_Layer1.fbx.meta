@@ -8,12 +8,12 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Green
-    second: {fileID: 2100000, guid: bd05556a95979b9488c806724c4303be, type: 2}
+    second: {fileID: 2100000, guid: a41886d68d2d2534499a199d97a852a8, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: LightGreen
-    second: {fileID: 2100000, guid: 35db76f02fff8584db7d22bfc380d1bf, type: 2}
+    second: {fileID: 2100000, guid: debf46a4c48bcb54f8455661bda9084a, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

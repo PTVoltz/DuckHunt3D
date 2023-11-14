@@ -386,7 +386,8 @@ GameObject:
   - component: {fileID: 147069970}
   - component: {fileID: 147069969}
   - component: {fileID: 147069968}
-  m_Layer: 0
+  - component: {fileID: 147069972}
+  m_Layer: 6
   m_Name: TestTarget
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -434,7 +435,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4aada8f8cdfc4cd429b58a0a6eb8dbbd, type: 2}
+  - {fileID: 2100000, guid: ed8e82feae913d941a9ee77eacc84867, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -479,6 +480,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &147069972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 147069967}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6b96758424d4194c95f3364f9955b2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TargetValue: 500
+  Scoreboard: {fileID: 590294131}
+  BulletParticles: {fileID: 2053198357}
 --- !u!1 &232102180
 GameObject:
   m_ObjectHideFlags: 0
@@ -1267,8 +1283,9 @@ GameObject:
   - component: {fileID: 590294132}
   - component: {fileID: 590294134}
   - component: {fileID: 590294133}
+  - component: {fileID: 590294135}
   m_Layer: 5
-  m_Name: ScoreboardPanel
+  m_Name: Scoreboard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1287,6 +1304,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1851061147}
+  - {fileID: 1805668628}
   m_Father: {fileID: 1441196219}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
@@ -1332,6 +1350,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 590294131}
   m_CullTransparentMesh: 1
+--- !u!114 &590294135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 590294131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbbcc1f9703225641944db135f7a06f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TargetValue: 0
+  ScoreObject: {fileID: 1805668627}
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -2273,7 +2305,8 @@ GameObject:
   - component: {fileID: 1664112859}
   - component: {fileID: 1664112858}
   - component: {fileID: 1664112857}
-  m_Layer: 0
+  - component: {fileID: 1664112861}
+  m_Layer: 6
   m_Name: TestTarget (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2321,7 +2354,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4aada8f8cdfc4cd429b58a0a6eb8dbbd, type: 2}
+  - {fileID: 2100000, guid: 4503a3717bee8944f95d3a2378e391aa, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2366,6 +2399,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1664112861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1664112856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6b96758424d4194c95f3364f9955b2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TargetValue: 1000
+  Scoreboard: {fileID: 590294131}
+  BulletParticles: {fileID: 2053198357}
 --- !u!1 &1687859613
 GameObject:
   m_ObjectHideFlags: 0
@@ -2488,6 +2536,85 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &1805668627
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1805668628}
+  - component: {fileID: 1805668630}
+  - component: {fileID: 1805668629}
+  m_Layer: 5
+  m_Name: Scoreboard_Value
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1805668628
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1805668627}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 590294132}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: -10.000012}
+  m_SizeDelta: {x: -18, y: -39.999973}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1805668629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1805668627}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 21ba0228b74e49b48bd8db1715b418f0, type: 3}
+    m_FontSize: 14
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 1
+    m_LineSpacing: 1
+  m_Text: 0
+--- !u!222 &1805668630
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1805668627}
+  m_CullTransparentMesh: 1
 --- !u!1 &1851061146
 GameObject:
   m_ObjectHideFlags: 0
@@ -2500,7 +2627,7 @@ GameObject:
   - component: {fileID: 1851061149}
   - component: {fileID: 1851061148}
   m_Layer: 5
-  m_Name: Scoreboard_Temp
+  m_Name: Scoreboard_Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2522,8 +2649,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.000030517578}
-  m_SizeDelta: {x: -18, y: -20}
+  m_AnchoredPosition: {x: 0, y: 2.4999847}
+  m_SizeDelta: {x: -18, y: -14.9999695}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1851061148
 MonoBehaviour:
@@ -2546,7 +2673,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 21ba0228b74e49b48bd8db1715b418f0, type: 3}
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 0
@@ -2558,7 +2685,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: '[Scoreboard] [Temp]'
+  m_Text: 'Score:
+
+'
 --- !u!222 &1851061149
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2579,7 +2708,8 @@ GameObject:
   - component: {fileID: 1863451006}
   - component: {fileID: 1863451005}
   - component: {fileID: 1863451004}
-  m_Layer: 0
+  - component: {fileID: 1863451008}
+  m_Layer: 6
   m_Name: TestTarget (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2627,7 +2757,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4aada8f8cdfc4cd429b58a0a6eb8dbbd, type: 2}
+  - {fileID: 2100000, guid: e09d6758b49efab49b76a711dd0a1612, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2672,6 +2802,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1863451008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1863451003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6b96758424d4194c95f3364f9955b2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TargetValue: 250
+  Scoreboard: {fileID: 590294131}
+  BulletParticles: {fileID: 2053198357}
 --- !u!1 &1880628208
 GameObject:
   m_ObjectHideFlags: 0
@@ -6812,7 +6957,7 @@ ParticleSystem:
     m_EnergyLossOnCollision:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0.9
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -6867,11 +7012,11 @@ ParticleSystem:
     radiusScale: 1
     collidesWith:
       serializedVersion: 2
-      m_Bits: 55
+      m_Bits: 64
     maxCollisionShapes: 256
     quality: 0
     voxelSize: 0.5
-    collisionMessages: 0
+    collisionMessages: 1
     collidesWithDynamic: 1
     interiorCollisions: 0
   TriggerModule:
