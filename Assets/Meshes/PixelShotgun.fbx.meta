@@ -1,44 +1,9 @@
 fileFormatVersion: 2
-guid: 295c9bbfa9c161143901e101b73147b3
+guid: e8949316191482d4fa46772d4ef44a08
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Black
-    second: {fileID: 2100000, guid: 1bd1bfef92d757c4fa59732ffa52e720, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Brown
-    second: {fileID: 2100000, guid: 9e6951bc1096d05498470427a542c91b, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: DarkGrey
-    second: {fileID: 2100000, guid: 822658efd0a825f4c8a2f37b5c762637, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Grey
-    second: {fileID: 2100000, guid: 494afc5001be38740955a22f94e7be11, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: LightGreen
-    second: {fileID: 2100000, guid: debf46a4c48bcb54f8455661bda9084a, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Orange
-    second: {fileID: 2100000, guid: ed8e82feae913d941a9ee77eacc84867, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: White
-    second: {fileID: 2100000, guid: acb75447eeec6c946bdaddc2f0b7ca08, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0

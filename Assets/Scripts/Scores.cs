@@ -13,7 +13,7 @@ public class Scores : MonoBehaviour
     public int InternalSpawnDelay;
     public int SpawnCount;
     public int SpawnCap;
-    public int Speed;
+    public float Speed;
     public int WaveNo;
 
     void Start()
@@ -32,7 +32,7 @@ public class Scores : MonoBehaviour
             WaveNo += 1;
             if(WaveNo < 3)
             {
-                Speed += 1;
+                Speed += 100;
                 SpawnCap += 5;
                 GlobalSpawnDelay -= 1;
                 InternalSpawnDelay -= 2;

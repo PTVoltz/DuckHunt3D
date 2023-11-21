@@ -5,6 +5,7 @@ using UnityEngine;
 public class DuckMov : MonoBehaviour
 {
     public GameObject Manager;
+    public GameObject Scoreboard;
     public Scores scores;
     float TimeAlive;
     float PointsGiven;
@@ -12,7 +13,8 @@ public class DuckMov : MonoBehaviour
     int xRotation;
     void Start()
     {
-        GameObject Manager = GameObject.Find("GameManager");
+        Manager = GameObject.Find("GameManager");
+        Scoreboard = GameObject.Find("Scoreboard");
         scores = Manager.GetComponent<Scores>();
         if(transform.position.y > 1)
         {
@@ -38,7 +40,7 @@ public class DuckMov : MonoBehaviour
     }
     void Update()
     {
-        transform.position += transform.forward * (scores.Speed+1)/20;
+        transform.position += transform.forward * (scores.Speed)/20 * Time.deltaTime;
         if (transform.position.x <= -21 || transform.position.x >= 21 || transform.position.y >= 15)
         {
             scores.DucksGone += 1;
@@ -60,6 +62,7 @@ public class DuckMov : MonoBehaviour
         }
         scores.Points += PointsGiven;
         scores.DucksGone += 1;
+        Scoreboard.gameObject.SendMessage("BulletHit", PointsGiven);
         Destroy(gameObject);
         //sends the points to the gamemanager, faster the kill, more points, defaults to 0 if you took longer than 5 seconds
     }
