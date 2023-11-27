@@ -11,8 +11,20 @@ public class DuckMov : MonoBehaviour
     float PointsGiven;
     int yRotation;
     int xRotation;
+
+    Rigidbody m_Rigidbody;
+    ParticleSystemRenderer render;
+    ParticleSystem emitter;
+
     void Start()
     {
+        //Get particle renderer and emitter, for setting rotations and flipping
+        render = GetComponent<ParticleSystemRenderer>();
+        emitter = GetComponent<ParticleSystem>();
+
+        //Get Rigidbody component for velocity
+        m_Rigidbody = GetComponent<Rigidbody>();
+
         Manager = GameObject.Find("GameManager");
         Scoreboard = GameObject.Find("Scoreboard");
         scores = Manager.GetComponent<Scores>();
@@ -40,8 +52,9 @@ public class DuckMov : MonoBehaviour
     }
     void Update()
     {
-        transform.position += transform.forward * (scores.Speed)/20 * Time.deltaTime;
-        if (transform.position.x <= -21 || transform.position.x >= 21 || transform.position.y >= 15)
+        //Note - changed this section to use Rigidbody Velocity
+        m_Rigidbody.velocity = transform.forward * (scores.Speed)*20 * Time.deltaTime;
+        if (transform.position.x <= -40 || transform.position.x >= 41 || transform.position.y >= 30)
         {
             scores.DucksGone += 1;
             scores.DucksMissed += 1;
@@ -50,6 +63,23 @@ public class DuckMov : MonoBehaviour
         }
         TimeAlive += Time.deltaTime;
         //keeps track of the time the duck's been alive for
+
+        //Set particle roll to object rotation
+
+        //Check if duck is moving left or right in world-space, flip sprite to track
+        //Also set particle rotation to local object direction - inverted if flipped to ensure correct direction
+
+
+        if (m_Rigidbody.velocity.x > 0)
+        {
+            render.flip = new Vector3(0,0,0);
+            emitter.startRotation = transform.rotation.x;
+        }
+        else if (m_Rigidbody.velocity.x < 0)
+        {
+            render.flip = new Vector3(1,0,0);
+            emitter.startRotation = transform.rotation.x*-1;
+        }
     }
     void OnParticleCollision(GameObject other)
         //this should work

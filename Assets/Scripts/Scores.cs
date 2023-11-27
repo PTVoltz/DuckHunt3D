@@ -16,12 +16,18 @@ public class Scores : MonoBehaviour
     public float Speed;
     public int WaveNo;
 
+    bool isGameRunning;
+
+    public GameObject gameOverMenu;
+
     void Start()
     {
         WaveNo = 1;
-        SpawnCap = 10;
+        SpawnCap = 3;
         GlobalSpawnDelay = 3;
         InternalSpawnDelay = 8;
+
+        isGameRunning = true;
     }
 
     void Update()
@@ -30,7 +36,7 @@ public class Scores : MonoBehaviour
         if(DucksGone == SpawnCap)
         {
             WaveNo += 1;
-            if(WaveNo < 3)
+            if(WaveNo < 1)
             {
                 Speed += 100;
                 SpawnCap += 5;
@@ -39,6 +45,15 @@ public class Scores : MonoBehaviour
                 SpawnCount = 0;
                 DucksGone = 0;
                 DucksMissed = 0;
+            }
+            else
+            {
+                if(isGameRunning == true)
+                {
+                    Debug.Log("Points sent");
+                    gameOverMenu.gameObject.SendMessage("GameOverMessage", Points);
+                    isGameRunning = false;
+                }
             }
             //can change these variables if you want, just an idea
         }

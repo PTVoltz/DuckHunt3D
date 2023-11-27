@@ -21,9 +21,9 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Green
-  m_Shader: {fileID: 4800000, guid: 4854c26fda5adbb4f817b9bde54e4c8b, type: 3}
+  m_Shader: {fileID: 4800000, guid: b342039bc9f12a545955f6efa929df90, type: 3}
   m_Parent: {fileID: 2100000, guid: 822658efd0a825f4c8a2f37b5c762637, type: 2}
-  m_ModifiedSerializedProperties: 0
+  m_ModifiedSerializedProperties: 12
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
@@ -37,8 +37,13 @@ Material:
     serializedVersion: 3
     m_TexEnvs: []
     m_Ints: []
-    m_Floats: []
+    m_Floats:
+    - _Emission: 0
+    - _ShadowStrength: 0
+    - _SpecularAdditive: 0
+    - _SpecularStrength: 1
     m_Colors:
     - _BaseColor: {r: 0.74509805, g: 0.74509805, b: 0.74509805, a: 1}
     - _Color: {r: 0.06666667, g: 0.3529412, b: 0.06666667, a: 1}
+    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []
