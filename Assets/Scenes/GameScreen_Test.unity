@@ -4041,7 +4041,12 @@ PrefabInstance:
     - target: {fileID: 5217851907836411467, guid: ee3933d7c41f21043b2aad8be3ddd7cb,
         type: 3}
       propertyPath: Speed
-      value: 100
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 5217851907836411467, guid: ee3933d7c41f21043b2aad8be3ddd7cb,
+        type: 3}
+      propertyPath: WaveCap
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5217851907836411467, guid: ee3933d7c41f21043b2aad8be3ddd7cb,
         type: 3}

@@ -15,6 +15,7 @@ public class PauseMenuTriggers : MonoBehaviour
         pauseMenu = gameObject.transform.GetChild(0).gameObject;
         pauseMenu.SetActive(false);
         Time.timeScale = 1;
+        Debug.Log("Time Unfrozen");
     }
 
 
@@ -36,6 +37,7 @@ public class PauseMenuTriggers : MonoBehaviour
     public void Pause()
     {
         Time.timeScale = 0;
+        Debug.Log("Time Frozen");
         pauseMenu.SetActive(true);
         isPaused = true;
 
@@ -44,6 +46,7 @@ public class PauseMenuTriggers : MonoBehaviour
     public void UnPause()
     {
         Time.timeScale = 1;
+        Debug.Log("Time Unfrozen");
         pauseMenu.SetActive(false);
         isPaused = false;
     }

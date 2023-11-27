@@ -16,6 +16,8 @@ public class Scores : MonoBehaviour
     public float Speed;
     public int WaveNo;
 
+    public int WaveCap;
+
     bool isGameRunning;
 
     public GameObject gameOverMenu;
@@ -23,7 +25,7 @@ public class Scores : MonoBehaviour
     void Start()
     {
         WaveNo = 1;
-        SpawnCap = 3;
+        SpawnCap = 10;
         GlobalSpawnDelay = 3;
         InternalSpawnDelay = 8;
 
@@ -36,9 +38,9 @@ public class Scores : MonoBehaviour
         if(DucksGone == SpawnCap)
         {
             WaveNo += 1;
-            if(WaveNo < 1)
+            if(WaveNo < WaveCap)
             {
-                Speed += 100;
+                Speed += 20;
                 SpawnCap += 5;
                 GlobalSpawnDelay -= 1;
                 InternalSpawnDelay -= 2;
