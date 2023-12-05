@@ -20,6 +20,8 @@ public class Scores : MonoBehaviour
 
     bool isGameRunning;
 
+    bool noHealth;
+
     public GameObject gameOverMenu;
 
     void Start()
@@ -30,6 +32,7 @@ public class Scores : MonoBehaviour
         InternalSpawnDelay = 8;
 
         isGameRunning = true;
+        noHealth = false;
     }
 
     void Update()
@@ -38,7 +41,7 @@ public class Scores : MonoBehaviour
         if(DucksGone == SpawnCap)
         {
             WaveNo += 1;
-            if(WaveNo < WaveCap)
+            if(WaveNo < WaveCap && noHealth == false)
             {
                 Speed += 20;
                 SpawnCap += 5;
@@ -59,5 +62,11 @@ public class Scores : MonoBehaviour
             }
             //can change these variables if you want, just an idea
         }
+    }
+
+    void Dead()
+    {
+        noHealth = true;
+        DucksGone = SpawnCap;
     }
 }

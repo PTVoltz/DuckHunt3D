@@ -6,6 +6,7 @@ public class DuckMov : MonoBehaviour
 {
     public GameObject Manager;
     public GameObject Scoreboard;
+    public GameObject Player;
     public Scores scores;
     float TimeAlive;
     float PointsGiven;
@@ -27,6 +28,7 @@ public class DuckMov : MonoBehaviour
 
         Manager = GameObject.Find("GameManager");
         Scoreboard = GameObject.Find("Scoreboard");
+        Player = GameObject.Find("Player");
         scores = Manager.GetComponent<Scores>();
         if(transform.position.y > 1)
         {
@@ -54,10 +56,11 @@ public class DuckMov : MonoBehaviour
     {
         //Note - changed this section to use Rigidbody Velocity
         m_Rigidbody.velocity = transform.forward * (scores.Speed)*20 * Time.deltaTime;
-        if (transform.position.x <= -40 || transform.position.x >= 41 || transform.position.y >= 30)
+        if (transform.position.x <= -30 || transform.position.x >= 30 || transform.position.y >= 30)
         {
             scores.DucksGone += 1;
             scores.DucksMissed += 1;
+            Player.gameObject.SendMessage("targetMiss");
             Destroy(gameObject);  
             //duck is die
         }

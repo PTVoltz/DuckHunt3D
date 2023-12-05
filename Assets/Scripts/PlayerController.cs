@@ -18,6 +18,10 @@ public class PlayerController : MonoBehaviour
     public Image[] BulletSprites;
     public Sprite[] Bullet;
 
+    //Health Sprites
+    public Image[] HealthSprites;
+    public Sprite[] Health;
+
     //On-screen mouse position
     float mouseX;
     float mouseY;
@@ -31,12 +35,17 @@ public class PlayerController : MonoBehaviour
     public int BulletMax;
     bool isReloading;
 
+    public int HealthCounter;
+
+    public GameObject gameManager;
+
     //On start - set Camera object to main camera, and confine cursor into window boundaries
     void Start()
     {
         mainCam = gameObject.transform.GetChild(0).gameObject.GetComponent<Camera>();
         Cursor.lockState = CursorLockMode.Confined;
         BulletCounter = BulletMax;
+        HealthCounter = 3;
     }
 
     // All references to "Time.timeScale" are used to check if the game is paused or not
@@ -80,21 +89,41 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        doUIUpdate(BulletCounter);
+        doUIUpdate(BulletCounter, HealthCounter);
 
     }
 
-    void doUIUpdate(int BulletCount)
+    void targetMiss()
     {
-        //set all hearts to empty
+        HealthCounter -= 1;
+        if (HealthCounter <= 0)
+        {
+            gameManager.gameObject.SendMessage("Dead");
+        }
+    }
+
+    void doUIUpdate(int BulletCount, int HealthCount)
+    {
+        //set all to empty
         for (int i = 0; i < BulletSprites.Length; i++)
         {
             BulletSprites[i].sprite = Bullet[0];
         }
-        //Refill remaining hearts
+        //Refill remaining
         for (int j = 0; j < BulletCount; j++)
         {
             BulletSprites[j].sprite = Bullet[1];
+        }
+
+        //set all to empty
+        for (int i = 0; i < HealthSprites.Length; i++)
+        {
+            HealthSprites[i].sprite = Health[0];
+        }
+        //Refill remaining
+        for (int j = 0; j < HealthCount; j++)
+        {
+            HealthSprites[j].sprite = Health[1];
         }
     }
 }
