@@ -38,6 +38,9 @@ public class PlayerController : MonoBehaviour
     public int HealthCounter;
 
     public GameObject gameManager;
+    
+    AudioSource gunShootAudio;
+    public AudioClip gunFire;
 
     //On start - set Camera object to main camera, and confine cursor into window boundaries
     void Start()
@@ -46,6 +49,7 @@ public class PlayerController : MonoBehaviour
         Cursor.lockState = CursorLockMode.Confined;
         BulletCounter = BulletMax;
         HealthCounter = 3;
+        gunShootAudio = GetComponent<AudioSource>();
     }
 
     // All references to "Time.timeScale" are used to check if the game is paused or not
@@ -74,7 +78,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButtonDown("Fire1") && (BulletCounter > 0) && (Time.timeScale>0))
         {
             bulletEmitter.Emit(1);
-            //Debug.Log("Clicked");
+            gunShootAudio.PlayOneShot(gunFire, 1.0f);
             BulletCounter -= 1;
         }
 

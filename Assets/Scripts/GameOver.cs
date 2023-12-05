@@ -22,14 +22,20 @@ public class GameOver : MonoBehaviour
     //A selected slot number to be replaced with a new highscore
     int highScoreSlot;
 
+    AudioSource scoreboardSource;
+    public AudioClip ScoreboardClip;
+
     void Start()
     {
         Time.timeScale = 1;
         Debug.Log("Time Unfrozen");
+        scoreboardSource = GetComponent<AudioSource>();
     }
 
     public void GameOverMessage(int score)
     {
+        scoreboardSource.PlayOneShot(ScoreboardClip, 1.0f);
+
         //Makes all parts of the End-Screen visible
         foreach (Transform child in transform)
         {

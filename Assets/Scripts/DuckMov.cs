@@ -17,11 +17,15 @@ public class DuckMov : MonoBehaviour
     ParticleSystemRenderer render;
     ParticleSystem emitter;
 
+    AudioSource duckSource;
+    public AudioClip DuckDie;
+
     void Start()
     {
         //Get particle renderer and emitter, for setting rotations and flipping
         render = GetComponent<ParticleSystemRenderer>();
         emitter = GetComponent<ParticleSystem>();
+        duckSource = GetComponent<AudioSource>();
 
         //Get Rigidbody component for velocity
         m_Rigidbody = GetComponent<Rigidbody>();
@@ -96,6 +100,7 @@ public class DuckMov : MonoBehaviour
         scores.Points += PointsGiven;
         scores.DucksGone += 1;
         Scoreboard.gameObject.SendMessage("BulletHit", PointsGiven);
+        AudioSource.PlayClipAtPoint(DuckDie, transform.position);
         Destroy(gameObject);
         //sends the points to the gamemanager, faster the kill, more points, defaults to 0 if you took longer than 5 seconds
     }
