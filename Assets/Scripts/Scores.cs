@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Scores : MonoBehaviour
 {
@@ -24,9 +25,12 @@ public class Scores : MonoBehaviour
 
     public GameObject gameOverMenu;
 
+    public Text waveText;
+
     void Start()
     {
         WaveNo = 1;
+        waveText.text = WaveNo.ToString();
         SpawnCap = 10;
         GlobalSpawnDelay = 3;
         InternalSpawnDelay = 8;
@@ -41,7 +45,9 @@ public class Scores : MonoBehaviour
         if(DucksGone == SpawnCap)
         {
             WaveNo += 1;
-            if(WaveNo < WaveCap && noHealth == false)
+            waveText.text = WaveNo.ToString();
+
+            if (WaveNo < WaveCap && noHealth == false)
             {
                 Speed += 20;
                 SpawnCap += 5;
@@ -59,6 +65,7 @@ public class Scores : MonoBehaviour
                     gameOverMenu.gameObject.SendMessage("GameOverMessage", Points);
                     isGameRunning = false;
                 }
+                WaveNo = WaveCap;
             }
             //can change these variables if you want, just an idea
         }
